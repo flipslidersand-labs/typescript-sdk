@@ -1,0 +1,12 @@
+# gitleaks 設定: デフォルトルールを継承し、テスト用ダミー値のみ allowlist 化する
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "テスト用ダミー値(vitest モックの JWT 風文字列 / テスト ID 文字列の誤検知)"
+targetRules = ["generic-api-key"]
+paths = [
+  '''packages/client/test/client/crossAppAccess\.test\.ts$''',
+  '''test/e2e/scenarios/hosting-entry-auth\.test\.ts$''',
+  '''test/e2e/requirements\.ts$''',
+]
